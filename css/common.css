@@ -38,35 +38,36 @@ img {
   max-width: 100%;
 }
 
-/**
- Flex Section 
- **/
+/*
+* CSS Grid Section 
+*/
 
- .flex-section {
+.grid-section {
   padding: 63px 0;
-  background: #ffffff;
+  background: #f0f0f0;
 }
 
-.flex-section__row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+.grid-section__row {
+  display: grid;
+  grid-template-columns: auto auto auto;
   padding: 0 15px;
+  box-sizing: content-box;
 }
 
-.flex-section__item {
+.grid-section__item { 
   width: 230px;
   height: 230px;
   margin: auto;
 }
 
-.flex-section__item--image {
+.grid-section__item--image {
   max-width: 100%;
+  display: block;
 }
 
 @media screen and (max-width: 720px) {
-  .flex-section__item {
-    width: 33.3%;
+  .grid-section__item {
+    width: 100%;
     height: auto;
   }
 }
