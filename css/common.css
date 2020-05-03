@@ -38,41 +38,34 @@ img {
   max-width: 100%;
 }
 
-/** 
- * Float Section 
+/**
+ Flex Section 
  **/
 
-.float-section {
+ .flex-section {
   padding: 63px 0;
-  background: #f0f0f0;
+  background: #ffffff;
 }
 
-.float-section__row {
-  width: 100%;
-  margin: auto;
+.flex-section__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   padding: 0 15px;
 }
 
-.float-section__row:before,
-.float-section__row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.float-section__item {
-  float: left;
+.flex-section__item {
   width: 230px;
   height: 230px;
   margin: auto;
 }
 
-.float-section__item--image {
+.flex-section__item--image {
   max-width: 100%;
 }
 
 @media screen and (max-width: 720px) {
-  .float-section__item {
+  .flex-section__item {
     width: 33.3%;
     height: auto;
   }
