@@ -36,38 +36,90 @@ body {
 
 img {
   max-width: 100%;
-}
-
-/*
-* CSS Grid Section 
-*/
-
-.grid-section {
-  padding: 63px 0;
-  background: #f0f0f0;
-}
-
-.grid-section__row {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  padding: 0 15px;
-  box-sizing: content-box;
-}
-
-.grid-section__item { 
-  width: 230px;
-  height: 230px;
-  margin: auto;
-}
-
-.grid-section__item--image {
-  max-width: 100%;
   display: block;
 }
 
-@media screen and (max-width: 720px) {
-  .grid-section__item {
-    width: 100%;
-    height: auto;
-  }
+/**	
+ Flex Section 	
+ **/	
+
+ .flex-section {	
+  padding: 63px 0;	
+  background: #ffffff;	
+}	
+
+.flex-section__row {	
+  display: flex;	
+  flex-wrap: wrap;	
+  justify-content: flex-start;	
+  padding: 0 15px;	
+}	
+
+.flex-section__item {	
+  width: 230px;	
+  height: 230px;	
+  margin: auto;
+  position: relative;
+}	
+
+.flex-section__item--image {	
+  max-width: 100%;	
 }
+
+.flex-section__img-info {
+  position: absolute;
+  top: 0;
+  padding: 30px 15px 15px 15px;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #333;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+
+.flex-section__img-category {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  border: 1px solid #999;
+  padding: 2px 5px;
+  font-size: 14px;
+  border-radius: 3px;
+  background: #ccc;
+}
+
+.flex-section__img-date {
+  position: absolute;
+  left: 7px;
+  top: 12px;
+  font-size: 14px;
+}
+
+.flex-section__img-author {
+  position: absolute;
+  left: 7px;
+  bottom: 30px;
+  font-size: 14px;
+}
+
+.flex-section__img-place {
+  position: absolute;
+  left: 7px;
+  bottom: 12px;
+  font-size: 14px;
+}
+
+.flex-section__item:hover .flex-section__img-info {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media screen and (max-width: 720px) {	
+  .flex-section__item {	
+    width: 33.3%;	
+    height: auto;	
+  }	
+}	
