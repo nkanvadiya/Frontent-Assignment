@@ -1,65 +1,110 @@
 {
   "data": [
     {
-      "img": { "src": "https://picsum.photos/id/1005/230", "alt": "image" },
-      "category": "Nature",
-      "date": "13-06-2014",
+      "id" : 1,
+      "img": {
+        "src": "https://picsum.photos/id/1005/230",
+        "alt": "image"
+      },
+      "category": "nature",
+      "time": 1556650629000,
+      "year": 2019,
       "author": "Matthew Henry",
       "location": "Paris, France"
     },
     {
-      "img": { "src": "https://picsum.photos/id/1003/230", "alt": "image" },
-      "category": "Animal",
-      "date": "11-01-2018",
+      "id" : 2,
+      "img": {
+        "src": "https://picsum.photos/id/1003/230",
+        "alt": "image"
+      },
+      "category": "animal",
+      "time": 1542826629000,
+      "year": 2018,
       "author": "Paul Jarvis",
-      "location": "Doha, Qatar"
+      "location": "Sydney, Australia"
     },
     {
-      "img": { "src": "https://picsum.photos/id/1056/230", "alt": "image" },
-      "category": "Nature",
-      "date": "01-11-2019",
+      "id" : 3,
+      "img": {
+        "src": "https://picsum.photos/id/1056/230",
+        "alt": "image"
+      },
+      "category": "nature",
+      "time": 1552071429000,
+      "year": 2019,
       "author": "Tina Rataj",
       "location": "Paris, France"
     },
     {
-      "img": { "src": "https://picsum.photos/id/1025/230", "alt": "image" },
-      "category": "Animal",
-      "date": "23-03-2014",
+      "id" : 4,
+      "img": {
+        "src": "https://picsum.photos/id/1025/230",
+        "alt": "image"
+      },
+      "category": "animal",
+      "time": 1489346244000,
+      "year": 2017,
       "author": "Neil Thomas",
       "location": "Venice, Italy"
     },
     {
-      "img": { "src": "https://picsum.photos/id/1050/230", "alt": "image" },
-      "category": "Nature",
-      "date": "21-05-2019",
+      "id" : 5,
+      "img": {
+        "src": "https://picsum.photos/id/1050/230",
+        "alt": "image"
+      },
+      "category": "nature",
+      "time": 1579979844000,
+      "year": 2020,
       "author": "Scott Webb",
-      "location": "Kyoto, Japan"
+      "location": "Barcelona, Spain"
     },
     {
-      "img": { "src": "https://picsum.photos/id/1048/230", "alt": "image" },
-      "category": "Architecture",
-      "date": "07-12-2018",
+      "id" : 6,
+      "img": {
+        "src": "https://picsum.photos/id/1048/230",
+        "alt": "image"
+      },
+      "category": "architecture",
+      "time": 1559762244000,
+      "year": 2019,
       "author": "Ben Moore",
       "location": "Jaipur, India"
     },
     {
-      "img": { "src": "https://picsum.photos/id/1062/230", "alt": "image" },
-      "category": "Animal",
-      "date": "28-08-2018",
+      "id" : 7,
+      "img": {
+        "src": "https://picsum.photos/id/1062/230",
+        "alt": "image"
+      },
+      "category": "animal",
+      "time": 1549912644000,
+      "year": 2019,
       "author": "William Hook",
       "location": "Barcelona, Spain"
     },
     {
-      "img": { "src": "https://picsum.photos/id/1076/230", "alt": "image" },
-      "category": "Architecture",
-      "date": "17-11-2018",
+      "id" : 8,
+      "img": {
+        "src": "https://picsum.photos/id/1076/230",
+        "alt": "image"
+      },
+      "category": "architecture",
+      "time": 1538075844000,
+      "year": 2018,
       "author": "Mike Wilson",
       "location": "Sydney, Australia"
     },
     {
-      "img": { "src": "https://picsum.photos/id/1080/230", "alt": "image" },
-      "category": "Fruits",
-      "date": "26-11-2018",
+      "id" : 9,
+      "img": {
+        "src": "https://picsum.photos/id/1080/230",
+        "alt": "image"
+      },
+      "category": "fruits",
+      "time": 1583435844000,
+      "year": 2020,
       "author": "Steve Carter",
       "location": "Jaipur, India"
     }
