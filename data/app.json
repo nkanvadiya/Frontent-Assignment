@@ -1,0 +1,67 @@
+{
+  "data": [
+    {
+      "img": { "src": "https://picsum.photos/id/1005/230", "alt": "image" },
+      "category": "Nature",
+      "date": "13-06-2014",
+      "author": "Matthew Henry",
+      "location": "Paris, France"
+    },
+    {
+      "img": { "src": "https://picsum.photos/id/1003/230", "alt": "image" },
+      "category": "Animal",
+      "date": "11-01-2018",
+      "author": "Paul Jarvis",
+      "location": "Doha, Qatar"
+    },
+    {
+      "img": { "src": "https://picsum.photos/id/1056/230", "alt": "image" },
+      "category": "Nature",
+      "date": "01-11-2019",
+      "author": "Tina Rataj",
+      "location": "Paris, France"
+    },
+    {
+      "img": { "src": "https://picsum.photos/id/1025/230", "alt": "image" },
+      "category": "Animal",
+      "date": "23-03-2014",
+      "author": "Neil Thomas",
+      "location": "Venice, Italy"
+    },
+    {
+      "img": { "src": "https://picsum.photos/id/1050/230", "alt": "image" },
+      "category": "Nature",
+      "date": "21-05-2019",
+      "author": "Scott Webb",
+      "location": "Kyoto, Japan"
+    },
+    {
+      "img": { "src": "https://picsum.photos/id/1048/230", "alt": "image" },
+      "category": "Architecture",
+      "date": "07-12-2018",
+      "author": "Ben Moore",
+      "location": "Jaipur, India"
+    },
+    {
+      "img": { "src": "https://picsum.photos/id/1062/230", "alt": "image" },
+      "category": "Animal",
+      "date": "28-08-2018",
+      "author": "William Hook",
+      "location": "Barcelona, Spain"
+    },
+    {
+      "img": { "src": "https://picsum.photos/id/1076/230", "alt": "image" },
+      "category": "Architecture",
+      "date": "17-11-2018",
+      "author": "Mike Wilson",
+      "location": "Sydney, Australia"
+    },
+    {
+      "img": { "src": "https://picsum.photos/id/1080/230", "alt": "image" },
+      "category": "Fruits",
+      "date": "26-11-2018",
+      "author": "Steve Carter",
+      "location": "Jaipur, India"
+    }
+  ]
+}
