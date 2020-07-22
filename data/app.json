@@ -4,6 +4,7 @@
       "id" : 1,
       "img": {
         "src": "https://picsum.photos/id/1005/230",
+        "zoom": "https://picsum.photos/id/1005/600",
         "alt": "image"
       },
       "category": "nature",
@@ -16,6 +17,7 @@
       "id" : 2,
       "img": {
         "src": "https://picsum.photos/id/1003/230",
+        "zoom": "https://picsum.photos/id/1003/600",
         "alt": "image"
       },
       "category": "animal",
@@ -28,6 +30,7 @@
       "id" : 3,
       "img": {
         "src": "https://picsum.photos/id/1056/230",
+        "zoom": "https://picsum.photos/id/1056/600",
         "alt": "image"
       },
       "category": "nature",
@@ -40,6 +43,7 @@
       "id" : 4,
       "img": {
         "src": "https://picsum.photos/id/1025/230",
+        "zoom": "https://picsum.photos/id/1025/600",
         "alt": "image"
       },
       "category": "animal",
@@ -52,6 +56,7 @@
       "id" : 5,
       "img": {
         "src": "https://picsum.photos/id/1050/230",
+        "zoom": "https://picsum.photos/id/1050/600",
         "alt": "image"
       },
       "category": "nature",
@@ -64,6 +69,7 @@
       "id" : 6,
       "img": {
         "src": "https://picsum.photos/id/1048/230",
+        "zoom": "https://picsum.photos/id/1048/600",
         "alt": "image"
       },
       "category": "architecture",
@@ -76,6 +82,7 @@
       "id" : 7,
       "img": {
         "src": "https://picsum.photos/id/1062/230",
+        "zoom": "https://picsum.photos/id/1062/600",
         "alt": "image"
       },
       "category": "animal",
@@ -88,6 +95,7 @@
       "id" : 8,
       "img": {
         "src": "https://picsum.photos/id/1076/230",
+        "zoom": "https://picsum.photos/id/1076/600",
         "alt": "image"
       },
       "category": "architecture",
@@ -100,6 +108,7 @@
       "id" : 9,
       "img": {
         "src": "https://picsum.photos/id/1080/230",
+        "zoom": "https://picsum.photos/id/1080/600",
         "alt": "image"
       },
       "category": "fruits",

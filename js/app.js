@@ -1,32 +1,38 @@
-var App = (function () {
+var App = (function() {
   return {
     init: init,
     filter: filter,
     sort: sort,
-    order: order
+    order: order,
+    openLightBox: openLightBox,
+    closeLightBox: closeLightBox
   };
 
-  var imgObj, sortBy, orderBy;
+  var imgObj, sortBy, orderBy, curIndex;
 
   function sort(ele, name) {
-    var selectedNav = document.querySelector(".img-sort-navigation-nav.selected");
+    var selectedNav = document.querySelector(
+      ".img-sort-navigation-nav.selected"
+    );
     if (selectedNav) {
       selectedNav.classList.remove("selected");
     }
-    ele.classList.add("selected");    
+    ele.classList.add("selected");
 
-    sortBy = (orderBy=="DESC"? '-': '') + name;
+    sortBy = (orderBy == "DESC" ? "-" : "") + name;
     imgObj.data = imgObj.data.sort(dynamicSort(sortBy));
-    
+
     render();
   }
 
   function order(ele, val) {
-    var selectedNav = document.querySelector(".img-order-navigation-nav.selected");
+    var selectedNav = document.querySelector(
+      ".img-order-navigation-nav.selected"
+    );
     if (selectedNav) {
       selectedNav.classList.remove("selected");
     }
-    ele.classList.add("selected");  
+    ele.classList.add("selected");
     orderBy = val;
 
     imgObj.data = imgObj.data.reverse();
@@ -35,9 +41,10 @@ var App = (function () {
   }
 
   function render() {
-    var wrapper = document.getElementById("img-section__row"), node;
+    var wrapper = document.getElementById("img-section__row"),
+      node;
     for (var key in imgObj) {
-      imgObj[key].forEach(function (item) {
+      imgObj[key].forEach(function(item) {
         node = document.getElementById("img-section-item-row-" + item.id);
         node.remove();
 
@@ -54,13 +61,13 @@ var App = (function () {
       property = property.substr(1);
     }
 
-    return function (a, b) {
+    return function(a, b) {
       if (sortOrder == -1) {
         return b[property].toString().localeCompare(a[property].toString());
       } else {
         return a[property].toString().localeCompare(b[property].toString());
       }
-    }
+    };
   }
 
   function init() {
@@ -68,37 +75,50 @@ var App = (function () {
     if (checkRow.length == 0) {
       createImageNode();
     }
+
+    //LightBox
+    initLightBox();
   }
 
   function filter(ele, name, value) {
-    var selectedNav = document.querySelector(".img-filter-navigation-nav.selected"), node;
+    var selectedNav = document.querySelector(
+        ".img-filter-navigation-nav.selected"
+      ),
+      node;
     if (selectedNav) {
       selectedNav.classList.remove("selected");
     }
     ele.classList.add("selected");
 
     for (var key in imgObj) {
-      imgObj[key].forEach(function (item) {
+      imgObj[key].forEach(function(item) {
         node = document.getElementById("img-section-item-row-" + item.id);
         switch (name) {
           case "category":
-            (item.category == value) ? node.classList.add('active') : node.classList.remove('active');
+            item.category == value
+              ? node.classList.add("active")
+              : node.classList.remove("active");
             break;
           case "date":
-            (item.year == value) ? node.classList.add('active') : node.classList.remove('active');
+            item.year == value
+              ? node.classList.add("active")
+              : node.classList.remove("active");
             break;
           case "location":
-            (convertToSlug(item.location) == value) ? node.classList.add('active') : node.classList.remove('active');
+            convertToSlug(item.location) == value
+              ? node.classList.add("active")
+              : node.classList.remove("active");
             break;
           default:
-            node.classList.add('active'); //Show All
+            node.classList.add("active"); //Show All
         }
       });
     }
   }
 
   function createFilterNav() {
-    var wrapper = document.getElementById("img-filter"), locSlug;
+    var wrapper = document.getElementById("img-filter"),
+      locSlug;
 
     //Add Category Filter
     var navCategory = document.createElement("ul");
@@ -116,14 +136,17 @@ var App = (function () {
     wrapper.appendChild(navLocation);
 
     for (var key in imgObj) {
-      imgObj[key].forEach(function (item) {
+      imgObj[key].forEach(function(item) {
         //Category Filter
         if (!document.getElementById("img-filter-category-" + item.category)) {
           var li = document.createElement("li");
           li.innerText = capitalizeFirstLetter(item.category);
           li.className = "img-filter-navigation-nav";
           li.id = "img-filter-category-" + item.category;
-          li.setAttribute("onclick", "App.filter(this, 'category','" + item.category + "')");
+          li.setAttribute(
+            "onclick",
+            "App.filter(this, 'category','" + item.category + "')"
+          );
           navCategory.appendChild(li);
         }
 
@@ -133,7 +156,10 @@ var App = (function () {
           li.innerText = item.year;
           li.className = "img-filter-navigation-nav";
           li.id = "img-filter-date-" + item.year;
-          li.setAttribute("onclick", "App.filter(this, 'date','" + item.year + "')");
+          li.setAttribute(
+            "onclick",
+            "App.filter(this, 'date','" + item.year + "')"
+          );
           navDate.appendChild(li);
         }
 
@@ -144,7 +170,10 @@ var App = (function () {
           li.innerText = item.location;
           li.className = "img-filter-navigation-nav";
           li.id = "img-filter-location-" + locSlug;
-          li.setAttribute("onclick", "App.filter(this, 'location','" + locSlug + "')");
+          li.setAttribute(
+            "onclick",
+            "App.filter(this, 'location','" + locSlug + "')"
+          );
           navLocation.appendChild(li);
         }
       });
@@ -152,7 +181,7 @@ var App = (function () {
   }
 
   function createImageNode() {
-    getJsonObject(function (obj) {
+    getJsonObject(function(obj) {
       imgObj = obj;
 
       //default category obj Set
@@ -161,13 +190,30 @@ var App = (function () {
       imgObj.data = imgObj.data.sort(dynamicSort(sortBy));
 
       for (var key in imgObj) {
-        imgObj[key].forEach(function (item) {
+        imgObj[key].forEach(function(item) {
           var sectionItem = document.createElement("div"),
             wrapper = document.getElementById("img-section__row");
           sectionItem.className = "img-section__item active";
           sectionItem.id = "img-section-item-row-" + item.id;
 
-          sectionItem.innerHTML = '<img src="' + item.img.src + '" class="img-section__item--image" alt="' + item.img.alt + '" /><div class="img-section__img-info"><span class="img-section__img-category">' + capitalizeFirstLetter(item.category) + '</span><span class="img-section__img-date">' + new Date( item.time ).toLocaleDateString() + '</span><span class="img-section__img-author"><i>By</i> <span class="img-section__img-author-name">' + item.author + '</span></span><span class="img-section__img-place">' + item.location + '</span></div>';
+          sectionItem.innerHTML =
+            '<img src="' +
+            item.img.src +
+            '" data-lightbox-img="' +
+            item.img.zoom +
+            '" class="img-section__item--image" alt="' +
+            item.img.alt +
+            '"/><div class="img-section__img-info" onClick="App.openLightBox(' +
+            item.id +
+            ');"><span class="img-section__img-category">' +
+            capitalizeFirstLetter(item.category) +
+            '</span><span class="img-section__img-date">' +
+            new Date(item.time).toLocaleDateString() +
+            '</span><span class="img-section__img-author"><i>By</i> <span class="img-section__img-author-name">' +
+            item.author +
+            '</span></span><span class="img-section__img-place">' +
+            item.location +
+            "</span></div>";
           wrapper.appendChild(sectionItem);
         });
       }
@@ -181,18 +227,21 @@ var App = (function () {
   }
 
   function convertToSlug(string) {
-    return string.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
+    return string
+      .toLowerCase()
+      .replace(/ /g, "-")
+      .replace(/[^\w-]+/g, "");
   }
 
   function getJsonObject(cb) {
     // read text from URL location
     var request = new XMLHttpRequest();
-    request.open('GET', 'data/app.json', true);
+    request.open("GET", "data/app.json", true);
     request.setRequestHeader("Access-Control-Allow-Origin", "*");
     request.send(null);
-    request.onreadystatechange = function () {
+    request.onreadystatechange = function() {
       if (request.readyState === 4 && request.status === 200) {
-        var type = request.getResponseHeader('Content-Type');
+        var type = request.getResponseHeader("Content-Type");
 
         try {
           cb(JSON.parse(request.responseText));
@@ -200,7 +249,113 @@ var App = (function () {
           cb(err);
         }
       }
+    };
+  }
+
+  function initLightBox() {
+    var lightbox = document.getElementById("lightbox");
+
+    //Prev Navigation
+    lightbox.querySelector(".prev").addEventListener(
+      "click",
+      function(e) {
+        navigateLightBox("prev");
+      },
+      false
+    );
+
+    //next Navigation
+    lightbox.querySelector(".next").addEventListener(
+      "click",
+      function(e) {
+        navigateLightBox("next");
+      },
+      false
+    );
+
+    // Keyboard Navigation
+    document.body.addEventListener(
+      "keydown",
+      function(e) {
+        var code = e.keyCode,
+          evt = new Event("click");
+
+        //ESC
+        if (code == 27) {
+          closeLightBox();
+        }
+        //left
+        if (code == 37) {
+          document.querySelector(".prev").dispatchEvent(evt);
+        }
+        //right
+        if (code == 39) {
+          document.querySelector(".next").dispatchEvent(evt);
+        }
+      },
+      false
+    );
+  }
+
+  function openLightBox(indexID) {
+    var lightbox = document.getElementById("lightbox"),
+      imgEle = document
+        .getElementById("img-section-item-row-" + indexID)
+        .querySelector(".img-section__item--image"),
+      lightboxContentImg = document.querySelector(
+        ".lightbox__content .img-section__item--image"
+      );
+
+    lightbox.classList.add("active");
+
+    lightboxContentImg.setAttribute(
+      "src",
+      imgEle.getAttribute("data-lightbox-img")
+    );
+
+    //Close LightBox if clicked anywhere else
+    lightboxContentImg.parentElement.parentElement.parentElement.addEventListener(
+      "click",
+      function(e) {
+        if (e.target == document.getElementById("lightbox")) {
+          closeLightBox();
+        }
+      }
+    );
+
+    imgObj.data.forEach(function(item, index) {
+      if (item.id == indexID) {
+        curIndex = index;
+      }
+    });
+  }
+
+  // Prev Next Navigation
+  function navigateLightBox(direction) {
+    var nextIndex;
+    if (direction == "next") {
+      nextIndex = curIndex < imgObj.data.length ? +curIndex + 1 : 0;
+    } else {
+      nextIndex = curIndex > 0 ? +curIndex - 1 : imgObj.data.length - 1;
     }
+
+    curIndex = nextIndex;
+
+    var imgEle = document
+        .getElementById("img-section-item-row-" + imgObj.data[curIndex].id)
+        .querySelector(".img-section__item--image"),
+      lightboxContentImg = document.querySelector(
+        ".lightbox__content .img-section__item--image"
+      );
+
+    lightboxContentImg.setAttribute(
+      "src",
+      imgEle.getAttribute("data-lightbox-img")
+    );
+  }
+
+  function closeLightBox() {
+    document.getElementById("lightbox").classList.remove("active");
   }
 })();
 
