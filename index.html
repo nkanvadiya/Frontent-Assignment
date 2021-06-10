@@ -1,240 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>BS Assignment</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="css/common.css" rel="stylesheet" />
-  </head>
-  <body>
-    <!-- Float -->
-    <section class="float-section">
-      <div class="container">
-        <div class="row">
-          <h3 class="section-title float-section__heading">Float Example</h3>
+<head>
+  <title>BS Assignment</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="css/common.css" rel="stylesheet" />
+</head>
+<body>
+
+  <section class="img-section">
+    <div class="container">
+      <div class="img-section-container">
+        <div class="img-filter" id="img-filter">
+          <div class="img-filter--title">FILTERS</div>
+          <ul class="img-filter-navigation">
+            <li class="img-filter-navigation-nav selected" onclick="App.filter(this)" id="img-filter-nav-everyone">Show
+              All</li>
+          </ul>
         </div>
-
-        <div class="float-section__row">
-          <div class="float-section__item">
-            <img
-              src="https://dummyimage.com/230x230/cccccc/303030.jpg"
-              class="float-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="float-section__item">
-            <img
-              src="https://dummyimage.com/230x230/cccc00/303030.jpg"
-              class="float-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="float-section__item">
-            <img
-              src="https://dummyimage.com/230x230/cc00cc/303030.jpg"
-              class="float-section__item--image"
-              alt="image"
-            />
+        <div class="img-section__row" id="img-section__row">
+          <div class="img-sort" id="img-sort">
+            <div class="img-sort--title">SORT BY</div>
+            <ul class="img-sort-navigation" id="img-sort-navigation">
+                <li class="img-sort-navigation-nav selected" onclick="App.sort(this,'category')" id="img-sort-nav-category">Category</li>
+              <li class="img-sort-navigation-nav" onclick="App.sort(this,'author')" id="img-sort-nav-author">Author</li>
+              <li class="img-sort-navigation-nav" onclick="App.sort(this,'location')" id="img-sort-nav-place">Place</li>
+              <li class="img-sort-navigation-nav" onclick="App.sort(this,'year')" id="img-sort-nav-date">Date</li>
+            </ul>
           </div>
 
-          <div class="float-section__item">
-            <img
-              src="https://dummyimage.com/230x230/00cccc/303030.jpg"
-              class="float-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="float-section__item">
-            <img
-              src="https://dummyimage.com/230x230/0000cc/303030.jpg"
-              class="float-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="float-section__item">
-            <img
-              src="https://dummyimage.com/230x230/cc0000/303030.jpg"
-              class="float-section__item--image"
-              alt="image"
-            />
-          </div>
+          <div class="img-order" id="img-order">
+              <div class="img-order--title">ORDER BY</div>
+              <ul class="img-order-navigation" id="img-order-navigation">
+                  <li class="img-order-navigation-nav selected" onclick="App.order(this,'ASC')" id="img-order-nav-asc">ASC</li>
+                <li class="img-order-navigation-nav" onclick="App.order(this,'DESC')" id="img-order-nav-desc">DESC</li>
+              </ul>
+            </div>
 
-          <div class="float-section__item">
-            <img
-              src="https://dummyimage.com/230x230/00cc00/303030.jpg"
-              class="float-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="float-section__item">
-            <img
-              src="https://dummyimage.com/230x230/cc6600/303030.jpg"
-              class="float-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="float-section__item">
-            <img
-              src="https://dummyimage.com/230x230/0066cc/303030.jpg"
-              class="float-section__item--image"
-              alt="image"
-            />
-          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Flexbox -->
-    <section class="flex-section">
-      <div class="container">
-        <div class="row">
-          <h3 class="section-title flex-section__heading">Flexbox Example</h3>
+  <!-- Light Box -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox__close" onclick="App.closeLightBox()">&times;</span>
+    <div class="lightbox__body">
+        <div class="lightbox__content">
+            <img src="https://picsum.photos/id/1003/230" data-lightbox-img="https://picsum.photos/id/1003/600" class="img-section__item--image" alt="image">
         </div>
+      <!-- Next/previous controls -->
+      <a class="prev">&#10094;</a>
+      <a class="next">&#10095;</a>
+    </div>
+  </div>
 
-        <div class="flex-section__row">
-          <div class="flex-section__item">
-            <img
-              src="https://dummyimage.com/230x230/cccccc/303030.jpg"
-              class="flex-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="flex-section__item">
-            <img
-              src="https://dummyimage.com/230x230/cccc00/303030.jpg"
-              class="flex-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="flex-section__item">
-            <img
-              src="https://dummyimage.com/230x230/cc00cc/303030.jpg"
-              class="flex-section__item--image"
-              alt="image"
-            />
-          </div>
-
-          <div class="flex-section__item">
-            <img
-              src="https://dummyimage.com/230x230/00cccc/303030.jpg"
-              class="flex-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="flex-section__item">
-            <img
-              src="https://dummyimage.com/230x230/0000cc/303030.jpg"
-              class="flex-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="flex-section__item">
-            <img
-              src="https://dummyimage.com/230x230/cc0000/303030.jpg"
-              class="flex-section__item--image"
-              alt="image"
-            />
-          </div>
-
-          <div class="flex-section__item">
-            <img
-              src="https://dummyimage.com/230x230/00cc00/303030.jpg"
-              class="flex-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="flex-section__item">
-            <img
-              src="https://dummyimage.com/230x230/cc6600/303030.jpg"
-              class="flex-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="flex-section__item">
-            <img
-              src="https://dummyimage.com/230x230/0066cc/303030.jpg"
-              class="flex-section__item--image"
-              alt="image"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CSS Grid -->
-    <section class="grid-section">
-      <div class="container">
-        <div class="row">
-          <h3 class="section-title">CSS Grid Example</h3>
-        </div>
-
-        <div class="grid-section__row">
-          <div class="grid-section__item">
-            <img
-              src="https://dummyimage.com/230x230/cccccc/303030.jpg"
-              class="grid-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="grid-section__item">
-            <img
-              src="https://dummyimage.com/230x230/cccc00/303030.jpg"
-              class="grid-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="grid-section__item">
-            <img
-              src="https://dummyimage.com/230x230/cc00cc/303030.jpg"
-              class="grid-section__item--image"
-              alt="image"
-            />
-          </div>
-
-          <div class="grid-section__item">
-            <img
-              src="https://dummyimage.com/230x230/00cccc/303030.jpg"
-              class="grid-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="grid-section__item">
-            <img
-              src="https://dummyimage.com/230x230/0000cc/303030.jpg"
-              class="grid-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="grid-section__item">
-            <img
-              src="https://dummyimage.com/230x230/cc0000/303030.jpg"
-              class="grid-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="grid-section__item">
-            <img
-              src="https://dummyimage.com/230x230/00cc00/303030.jpg"
-              class="grid-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="grid-section__item">
-            <img
-              src="https://dummyimage.com/230x230/cc6600/303030.jpg"
-              class="grid-section__item--image"
-              alt="image"
-            />
-          </div>
-          <div class="grid-section__item">
-            <img
-              src="https://dummyimage.com/230x230/0066cc/303030.jpg"
-              class="grid-section__item--image"
-              alt="image"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-  </body>
+  <script type="text/javascript" src="js/app.js" defer></script>
+</body>
 </html>
